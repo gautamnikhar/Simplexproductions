@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simplex Productions × Ava Handfab</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #1b4332;
+      --green-mid: #2d6a4f;
+      --green-bright: #40916c;
+      --green-light: #95d5b2;
+      --green-pale: #d8f3dc;
+      --white: #ffffff;
+      --off-white: #f8fdf9;
+      --dark: #111111;
+      --gray: #555555;
+    }
+
+    @page {
+      size: 297mm 210mm;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      background: #e0e0e0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .slide {
+      width: 297mm;
+      height: 210mm;
+      margin: 0 auto;
+      background: var(--white);
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media screen {
+      .slide {
+        margin: 24px auto;
+        box-shadow: 0 8px 60px rgba(0,0,0,0.12);
+        border-radius: 6px;
+      }
+    }
+
+    /* ───────── SLIDE 1: COVER ───────── */
+    .cover {
+      display: flex;
+      height: 210mm;
+    }
+
+    .cover-left {
+      width: 55%;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 55px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-left::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(149,213,178,0.15);
+    }
+
+    .cover-left::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      left: -60px;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      border: 1px solid rgba(149,213,178,0.1);
+    }
+
+    .cover-badge {
+      display: inline-block;
+      border: 2px solid var(--green-light);
+      color: var(--green-light);
+      padding: 6px 20px;
+      border-radius: 30px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    .cover-left h1 {
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-left h1 span {
+      color: var(--green-light);
+    }
+
+    .cover-divider {
+      width: 50px;
+      height: 3px;
+      background: var(--green-light);
+      margin: 20px 0;
+    }
+
+    .cover-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      line-height: 1.7;
+      max-width: 360px;
+    }
+
+    .cover-right {
+      width: 45%;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 50px 40px;
+    }
+
+    .cover-right .prepared {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .cover-right h3 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    .cover-right .date {
+      font-size: 12px;
+      color: var(--gray);
+      font-weight: 500;
+      padding: 8px 20px;
+      border: 1px solid var(--green-pale);
+      border-radius: 20px;
+    }
+
+    /* ───────── INNER SLIDES (2–7) ───────── */
+    .inner {
+      display: flex;
+      height: 210mm;
+    }
+
+    .sidebar {
+      width: 80px;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px 0;
+    }
+
+    .sidebar .logo {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green-light);
+      font-weight: 700;
+    }
+
+    .sidebar .page-num {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--white);
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--green-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tag {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green-bright);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1.2;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--gray);
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    /* ───────── SLIDE 2: PROBLEM ───────── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .problem-card {
+      background: var(--off-white);
+      border-radius: 10px;
+      padding: 22px;
+      border-left: 4px solid var(--green-bright);
+    }
+
+    .problem-card .icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .problem-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .problem-card p {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.55;
+    }
+
+    .callout-bar {
+      background: var(--green);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 18px 28px;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .callout-bar p {
+      font-size: 14px;
+      font-weight: 600;
+      font-style: italic;
+      color: var(--green-light);
+      line-height: 1.5;
+    }
+
+    /* ───────── SLIDE 3: ABOUT ───────── */
+    .stats-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .stat-box {
+      flex: 1;
+      background: var(--green);
+      border-radius: 10px;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .stat-box .num {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--green-light);
+      margin-bottom: 4px;
+    }
+
+    .stat-box .lbl {
+      font-size: 10px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .about-desc {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .about-desc strong {
+      color: var(--dark);
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .usp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--off-white);
+      border-radius: 8px;
+    }
+
+    .usp-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--green-bright);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    .usp-item p {
+      font-size: 11px;
+      color: var(--dark);
+      line-height: 1.45;
+    }
+
+    .usp-item strong {
+      color: var(--green);
+    }
+
+    /* ───────── SLIDE 4: SERVICES ───────── */
+    .service-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+
+    .svc-card {
+      border: 2px solid var(--green-pale);
+      border-radius: 12px;
+      padding: 24px 20px;
+      position: relative;
+      background: var(--white);
+    }
+
+    .svc-card.highlight {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .svc-card.highlight h4 {
+      color: var(--green-light);
+    }
+
+    .svc-card.highlight p {
+      color: rgba(255,255,255,0.8);
+    }
+
+    .svc-card.highlight .svc-tag {
+      background: rgba(255,255,255,0.15);
+      color: var(--green-light);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .svc-num {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--green-pale);
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      line-height: 1;
+    }
+
+    .svc-card.highlight .svc-num {
+      color: rgba(255,255,255,0.12);
+    }
+
+    .svc-card h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 10px;
+      margin-top: 4px;
+    }
+
+    .svc-card p {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .svc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .svc-tag {
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--green-mid);
+      border: 1px solid var(--green-pale);
+      background: var(--off-white);
+    }
+
+    /* ───────── SLIDE 5: PROCESS ───────── */
+    .process-row {
+      display: flex;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .process-step {
+      flex: 1;
+      background: var(--off-white);
+      border-radius: 12px;
+      padding: 22px 18px;
+      position: relative;
+      border-top: 4px solid var(--green-bright);
+    }
+
+    .process-step .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .process-step h4 {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .process-step p {
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .step-time {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--green);
+      border-radius: 20px;
+      font-size: 9px;
+      color: var(--green-light);
+      font-weight: 700;
+    }
+
+    /* ───────── SLIDE 6: VISION ───────── */
+    .vision-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .vision-box {
+      flex: 1;
+      border-radius: 12px;
+      padding: 24px 22px;
+    }
+
+    .vision-box.dark {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .vision-box.dark h4 {
+      color: var(--green-light);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .vision-box.dark li {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .vision-box.light {
+      background: var(--off-white);
+      border: 2px solid var(--green-pale);
+    }
+
+    .vision-box.light h4 {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .vision-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .vision-box li {
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 4px 0 4px 18px;
+      position: relative;
+      color: var(--dark);
+    }
+
+    .vision-box li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green-bright);
+      font-weight: 700;
+    }
+
+    .vision-box.dark li::before {
+      color: var(--green-light);
+    }
+
+    .pillars-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .pillar-card {
+      flex: 1;
+      text-align: center;
+      padding: 18px 14px;
+      background: var(--white);
+      border: 2px solid var(--green-pale);
+      border-radius: 10px;
+    }
+
+    .pillar-card .pillar-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .pillar-card h5 {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .pillar-card p {
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.45;
+    }
+
+    /* ───────── SLIDE 7: PRICING ───────── */
+    .pricing-cards {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      flex: 1;
+      border: 2px solid var(--green-pale);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      position: relative;
+      background: var(--white);
+    }
+
+    .price-card.featured {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--white);
+      transform: scale(1.02);
+    }
+
+    .price-card.featured::after {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green-bright);
+      color: var(--white);
+      font-size: 8px;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-weight: 800;
+    }
+
+    .price-card h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .price-card.featured h4 {
+      color: var(--green-light);
+    }
+
+    .price-card .desc {
+      font-size: 10px;
+      color: var(--gray);
+      margin-bottom: 14px;
+    }
+
+    .price-card.featured .desc {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .price-amount {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .price-card.featured .price-amount {
+      color: var(--white);
+    }
+
+    .price-period {
+      font-size: 10px;
+      color: var(--gray);
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .price-card.featured .price-period {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .price-features {
+      list-style: none;
+      text-align: left;
+    }
+
+    .price-features li {
+      font-size: 11px;
+      color: var(--dark);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--green-pale);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.35;
+    }
+
+    .price-card.featured .price-features li {
+      color: rgba(255,255,255,0.9);
+      border-bottom-color: rgba(255,255,255,0.12);
+    }
+
+    .price-features li:last-child { border-bottom: none; }
+
+    .price-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green-bright);
+      font-weight: 800;
+    }
+
+    .price-card.featured .price-features li::before {
+      color: var(--green-light);
+    }
+
+    .pricing-footer {
+      text-align: center;
+      margin-top: 18px;
+      padding: 14px 20px;
+      background: var(--off-white);
+      border-radius: 8px;
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .pricing-footer strong {
+      color: var(--dark);
+    }
+
+    /* ───────── SLIDE 8: CLOSING ───────── */
+    .closing-slide {
+      display: flex;
+      height: 210mm;
+    }
+
+    .close-left {
+      width: 55%;
+      background: var(--green);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 55px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .close-left::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(149,213,178,0.08);
+    }
+
+    .close-left h2 {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .close-left h2 span {
+      color: var(--green-light);
+    }
+
+    .close-divider {
+      width: 50px;
+      height: 3px;
+      background: var(--green-light);
+      margin: 16px 0;
+    }
+
+    .close-left p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .close-left .footer {
+      position: absolute;
+      bottom: 30px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 1px;
+    }
+
+    .close-right {
+      width: 45%;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 45px;
+    }
+
+    .close-right h4 {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .contact-row {
+      margin-bottom: 22px;
+    }
+
+    .contact-row .c-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-row .c-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    @media print {
+      body { background: white; }
+      .slide {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ──────── SLIDE 1: COVER ──────── -->
+  <div class="slide">
+    <div class="cover">
+      <div class="cover-left">
+        <div class="cover-badge">Proposal 2026</div>
+        <h1>Simplex<br><span>Productions</span></h1>
+        <div class="cover-divider"></div>
+        <p class="cover-sub">
+          End-to-end social media &amp; content production
+          built for brands that craft with their hands.
+        </p>
+      </div>
+      <div class="cover-right">
+        <p class="prepared">Prepared Exclusively For</p>
+        <h3>Ava Handfab</h3>
+        <span class="date">March 2026 &middot; Confidential</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 2: THE PROBLEM ──────── -->
+  <div class="slide">
+    <div class="inner">
+      <div class="sidebar">
+        <span class="logo">Simplex</span>
+        <span class="page-num">02</span>
+      </div>
+      <div class="main">
+        <div class="tag">The Challenge</div>
+        <h2 class="title">Beautiful Rugs. Invisible Online.</h2>
+        <p class="subtitle">Hand-tufted rugs are a craft of precision and artistry — but most B2B rug exporters struggle to translate that story online.</p>
+        <div class="content">
+          <div class="problem-grid">
+            <div class="problem-card">
+              <div class="icon">📸</div>
+              <h4>No Visual Identity</h4>
+              <p>Product photos don't capture the texture, craftsmanship, or scale — leading to flat, forgettable impressions.</p>
+            </div>
+            <div class="problem-card">
+              <div class="icon">🌍</div>
+              <h4>Untapped Global Buyers</h4>
+              <p>International B2B buyers discover suppliers through social media. Without a presence, you're invisible to decision-makers.</p>
+            </div>
+            <div class="problem-card">
+              <div class="icon">🧵</div>
+              <h4>Story Left Untold</h4>
+              <p>The artisan process, techniques, and heritage — none of it reaches buyers who care deeply about sourcing and craft.</p>
+            </div>
+            <div class="problem-card">
+              <div class="icon">📊</div>
+              <h4>Inconsistent Execution</h4>
+              <p>Managing shoots, content, and posting in-house drains time that should go into production and client relationships.</p>
+            </div>
+          </div>
+          <div class="callout-bar">
+            <p>"Your rugs deserve to be seen the way they're made — with care, intention, and mastery."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 3: WHO WE ARE ──────── -->
+  <div class="slide">
+    <div class="inner">
+      <div class="sidebar">
+        <span class="logo">Simplex</span>
+        <span class="page-num">03</span>
+      </div>
+      <div class="main">
+        <div class="tag">About Us</div>
+        <h2 class="title">We Are Simplex Productions</h2>
+        <p class="subtitle">A full-service social media &amp; content production company — from shoot to strategy to posting, we handle it all.</p>
+        <div class="content">
+          <div class="stats-row">
+            <div class="stat-box">
+              <div class="num">End-to-End</div>
+              <div class="lbl">Shoot → Edit → Post<br>One team, zero gaps</div>
+            </div>
+            <div class="stat-box">
+              <div class="num">B2B Focus</div>
+              <div class="lbl">Deep Expertise<br>We understand the export game</div>
+            </div>
+            <div class="stat-box">
+              <div class="num">360°</div>
+              <div class="lbl">Full Content Lifecycle<br>Strategy to analytics</div>
+            </div>
+          </div>
+          <p class="about-desc">
+            <strong>Simplex Productions</strong> exists because product-driven businesses deserve world-class content without the chaos of juggling freelancers, agencies, and tools. We embed as your content arm — understanding your products, buyers, and brand deeply.
+          </p>
+          <div class="usp-grid">
+            <div class="usp-item">
+              <span class="usp-check">✓</span>
+              <p><strong>One team, all deliverables</strong> — no more coordinating between photographers, editors, and strategists.</p>
+            </div>
+            <div class="usp-item">
+              <span class="usp-check">✓</span>
+              <p><strong>Built for product brands</strong> — we make physical, craft-based products look premium online.</p>
+            </div>
+            <div class="usp-item">
+              <span class="usp-check">✓</span>
+              <p><strong>Data-driven creativity</strong> — every post and campaign backed by performance analytics.</p>
+            </div>
+            <div class="usp-item">
+              <span class="usp-check">✓</span>
+              <p><strong>Reliable cadence</strong> — you'll never miss a post or scramble for content again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 4: SERVICES ──────── -->
+  <div class="slide">
+    <div class="inner">
+      <div class="sidebar">
+        <span class="logo">Simplex</span>
+        <span class="page-num">04</span>
+      </div>
+      <div class="main">
+        <div class="tag">What We Deliver</div>
+        <h2 class="title">Our Services for Ava Handfab</h2>
+        <p class="subtitle">Every service tailored to showcase hand-tufted luxury to the right global audience.</p>
+        <div class="content">
+          <div class="service-cards">
+            <div class="svc-card highlight">
+              <div class="svc-num">01</div>
+              <h4>Photo &amp; Video Production</h4>
+              <p>Professional on-location and studio shoots capturing the texture, scale, and artistry of every rug. From factory process videos to styled product photography.</p>
+              <div class="svc-tags">
+                <span class="svc-tag">Product Shoots</span>
+                <span class="svc-tag">Lifestyle Imagery</span>
+                <span class="svc-tag">Factory Films</span>
+                <span class="svc-tag">Reels</span>
+              </div>
+            </div>
+            <div class="svc-card">
+              <div class="svc-num">02</div>
+              <h4>Social Media Management</h4>
+              <p>We own your social presence end-to-end — content calendar, captions, hashtag strategy, daily posting, community management, and performance reporting.</p>
+              <div class="svc-tags">
+                <span class="svc-tag">Instagram</span>
+                <span class="svc-tag">LinkedIn</span>
+                <span class="svc-tag">Facebook</span>
+                <span class="svc-tag">Analytics</span>
+              </div>
+            </div>
+            <div class="svc-card">
+              <div class="svc-num">03</div>
+              <h4>Branding &amp; Strategy</h4>
+              <p>We position Ava Handfab as a premium, story-rich export brand that speaks directly to architects, interior designers, and retail importers.</p>
+              <div class="svc-tags">
+                <span class="svc-tag">Positioning</span>
+                <span class="svc-tag">Visual Identity</span>
+                <span class="svc-tag">Content Strategy</span>
+                <span class="svc-tag">Personas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 5: PROCESS ──────── -->
+  <div class="slide">
+    <div class="inner">
+      <div class="sidebar">
+        <span class="logo">Simplex</span>
+        <span class="page-num">05</span>
+      </div>
+      <div class="main">
+        <div class="tag">Our Process</div>
+        <h2 class="title">How We'll Work Together</h2>
+        <p class="subtitle">A clear, structured approach to get Ava Handfab's social presence from zero to industry-leading.</p>
+        <div class="content">
+          <div class="process-row">
+            <div class="process-step">
+              <div class="step-num">1</div>
+              <h4>Discovery &amp; Brand Audit</h4>
+              <p>Deep-dive into your products, best-sellers, target buyers, competitors, and untold brand story.</p>
+              <span class="step-time">Week 1</span>
+            </div>
+            <div class="process-step">
+              <div class="step-num">2</div>
+              <h4>Strategy &amp; Blueprint</h4>
+              <p>Full content strategy — visual direction, content pillars, posting calendar, and buyer engagement plan.</p>
+              <span class="step-time">Week 2</span>
+            </div>
+            <div class="process-step">
+              <div class="step-num">3</div>
+              <h4>Production &amp; Shoot</h4>
+              <p>On-site shoot capturing products, processes, craftsmanship, team portraits, and factory ambiance.</p>
+              <span class="step-time">Week 2–3</span>
+            </div>
+            <div class="process-step">
+              <div class="step-num">4</div>
+              <h4>Launch &amp; Manage</h4>
+              <p>Strategic content rollout with daily posting, engagement, analytics tracking, and reporting.</p>
+              <span class="step-time">Week 3+</span>
+            </div>
+            <div class="process-step">
+              <div class="step-num">5</div>
+              <h4>Review &amp; Scale</h4>
+              <p>Monthly reviews to assess performance, plan content, and identify growth opportunities.</p>
+              <span class="step-time">Monthly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 6: VISION ──────── -->
+  <div class="slide">
+    <div class="inner">
+      <div class="sidebar">
+        <span class="logo">Simplex</span>
+        <span class="page-num">06</span>
+      </div>
+      <div class="main">
+        <div class="tag">Your Vision</div>
+        <h2 class="title">What Ava Handfab Will Become</h2>
+        <p class="subtitle">Content that converts browsers into buyers — across every platform.</p>
+        <div class="content">
+          <div class="vision-row">
+            <div class="vision-box dark">
+              <h4>Instagram &amp; Facebook</h4>
+              <ul>
+                <li>Scroll-stopping product reels with texture close-ups</li>
+                <li>Behind-the-scenes tufting process videos</li>
+                <li>Styled room mockups with rugs in real interiors</li>
+                <li>Client testimonials &amp; export journey highlights</li>
+                <li>Collection launches with countdown hype</li>
+              </ul>
+            </div>
+            <div class="vision-box light">
+              <h4>LinkedIn (B2B Focus)</h4>
+              <ul>
+                <li>Founder thought leadership on rug export industry</li>
+                <li>Trade show recaps &amp; partnership announcements</li>
+                <li>"How it's made" posts for architects &amp; designers</li>
+                <li>Case studies: orders fulfilled, markets entered</li>
+                <li>Industry trends &amp; market commentary</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pillars-row">
+            <div class="pillar-card">
+              <div class="pillar-icon">🧵</div>
+              <h5>The Craft</h5>
+              <p>Hand-tufting process, materials, artisan profiles, quality standards</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">🏠</div>
+              <h5>The Product</h5>
+              <p>Collections, custom designs, texture details, room visualizations</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">🌏</div>
+              <h5>The Business</h5>
+              <p>Export capabilities, client partnerships, trade events, company culture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 7: PRICING ──────── -->
+  <div class="slide">
+    <div class="inner">
+      <div class="sidebar">
+        <span class="logo">Simplex</span>
+        <span class="page-num">07</span>
+      </div>
+      <div class="main">
+        <div class="tag">Investment</div>
+        <h2 class="title">Packages &amp; Pricing</h2>
+        <p class="subtitle">Flexible plans designed to match your growth stage and content ambitions.</p>
+        <div class="content">
+          <div class="pricing-cards">
+            <div class="price-card">
+              <h4>Starter</h4>
+              <p class="desc">Post-production &amp; strategy</p>
+              <div class="price-amount">$1,200</div>
+              <div class="price-period">per month</div>
+              <ul class="price-features">
+                <li>Content strategy &amp; brand positioning</li>
+                <li>Post-production &amp; editing</li>
+                <li>Content calendar &amp; scheduling</li>
+                <li>Social media posting &amp; management</li>
+                <li>Monthly analytics &amp; reporting</li>
+              </ul>
+            </div>
+            <div class="price-card featured">
+              <h4>Growth</h4>
+              <p class="desc">Shoot + full content engine</p>
+              <div class="price-amount">$1,500</div>
+              <div class="price-period">per month</div>
+              <ul class="price-features">
+                <li>Everything in Starter</li>
+                <li>Professional photo &amp; video shoots</li>
+                <li>On-location &amp; studio production</li>
+                <li>Reels, short-form &amp; long-form video</li>
+                <li>Community management &amp; engagement</li>
+                <li>Dedicated content bank creation</li>
+              </ul>
+            </div>
+            <div class="price-card">
+              <h4>Scale</h4>
+              <p class="desc">Full production + Meta Ads</p>
+              <div class="price-amount">$2,200</div>
+              <div class="price-period">per month</div>
+              <ul class="price-features">
+                <li>Everything in Growth</li>
+                <li>Meta Ads setup &amp; management</li>
+                <li>Ad creative production</li>
+                <li>Audience targeting &amp; retargeting</li>
+                <li>Campaign optimization &amp; A/B testing</li>
+                <li>Ad performance &amp; ROI tracking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="pricing-footer">
+            All plans include a <strong>one-time onboarding &amp; brand audit</strong> in Month 1. Custom packages available upon request.
+            <strong>Ad spend is billed separately</strong> and not included in the Scale package fee.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────── SLIDE 8: CLOSING ──────── -->
+  <div class="slide">
+    <div class="closing-slide">
+      <div class="close-left">
+        <h2>Let's Make<br><span>Ava Handfab</span><br>Unmissable.</h2>
+        <div class="close-divider"></div>
+        <p>Your craft deserves to be seen by the world. Let Simplex Productions be the team that makes it happen.</p>
+        <div class="footer">&copy; 2026 Simplex Productions. All rights reserved.</div>
+      </div>
+      <div class="close-right">
+        <h4>Get In Touch</h4>
+        <div class="contact-row">
+          <div class="c-label">Name</div>
+          <div class="c-value">Nikhar Gautam</div>
+        </div>
+        <div class="contact-row">
+          <div class="c-label">Company</div>
+          <div class="c-value">Simplex Productions</div>
+        </div>
+        <div class="contact-row">
+          <div class="c-label">Email</div>
+          <div class="c-value">gautamnikhar9@gmail.com</div>
+        </div>
+        <div class="contact-row">
+          <div class="c-label">Phone</div>
+          <div class="c-value">+91 8178386044</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

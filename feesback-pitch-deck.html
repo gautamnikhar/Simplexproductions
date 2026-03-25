@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feesback – Personal Branding Pitch Deck</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #1C3F6E;
+      --blue-mid:   #2B5FA5;
+      --blue-light: #4A7EC7;
+      --beige:      #F5EDD9;
+      --beige-dark: #E8D9B8;
+      --beige-deep: #D6C49A;
+      --white:      #FFFFFF;
+      --text-dark:  #12243E;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0e1c2f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px 60px;
+      gap: 12px;
+    }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(14,28,47,0.95);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 20px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+    #nav button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ccc;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    #nav button:hover, #nav button.active {
+      background: var(--blue-mid);
+      border-color: var(--blue-mid);
+      color: #fff;
+    }
+
+    /* ── SLIDE BASE ── */
+    .slide {
+      width: 100%;
+      max-width: 960px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      margin-top: 60px;
+    }
+    .slide:not(:first-of-type) { margin-top: 0; }
+
+    /* ══════════════════════════════
+       SLIDE 1 – COVER
+    ══════════════════════════════ */
+    #s1 {
+      background: linear-gradient(135deg, var(--blue) 0%, #0d2240 60%, #1a3a6b 100%);
+      min-height: 540px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    #s1::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(75,126,199,0.25) 0%, transparent 70%);
+      top: -100px; right: -100px;
+    }
+    #s1::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,237,217,0.08) 0%, transparent 70%);
+      bottom: -80px; left: 40px;
+    }
+    .s1-left {
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(245,237,217,0.15);
+      border: 1px solid rgba(245,237,217,0.35);
+      color: var(--beige);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+    .s1-left h1 {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .s1-left h1 span { color: var(--beige-deep); }
+    .s1-left .sub {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--beige);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 40px;
+      width: fit-content;
+      letter-spacing: .5px;
+    }
+    .cta-pill svg { flex-shrink: 0; }
+
+    .s1-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      padding: 40px;
+    }
+    /* Founder card */
+    .founder-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 36px 32px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 280px;
+    }
+    .avatar-ring {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--beige-deep), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 42px;
+      position: relative;
+    }
+    .avatar-ring::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px dashed rgba(245,237,217,0.4);
+    }
+    .founder-card h3 {
+      font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 4px;
+    }
+    .founder-card p {
+      font-size: 11px; font-weight: 600; color: var(--beige-deep);
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .stats-row {
+      display: flex; gap: 12px;
+    }
+    .stat-box {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 12px 8px;
+    }
+    .stat-box strong { display: block; font-size: 18px; font-weight: 900; color: var(--beige); }
+    .stat-box span { font-size: 9px; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* slide label */
+    .slide-label {
+      position: absolute;
+      bottom: 20px; right: 24px;
+      font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.25);
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════
+       SHARED SECTION STYLES
+    ══════════════════════════════ */
+    .section-header {
+      padding: 50px 60px 10px;
+    }
+    .sec-tag {
+      font-size: 10px; font-weight: 800; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--blue-mid);
+      margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-size: 32px; font-weight: 900; color: var(--blue);
+      line-height: 1.2;
+    }
+    .section-header h2 em { font-style: normal; color: var(--blue-light); }
+    .section-body { padding: 30px 60px 50px; }
+    .divider { width: 50px; height: 4px; background: var(--blue-mid); border-radius: 2px; margin: 16px 0 30px; }
+
+    /* ══════════════════════════════
+       SLIDE 2 – THE OPPORTUNITY
+    ══════════════════════════════ */
+    #s2 { background: var(--beige); }
+    .opp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .opp-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px 24px;
+      border-left: 5px solid var(--blue-mid);
+      box-shadow: 0 4px 20px rgba(28,63,110,0.08);
+    }
+    .opp-card .icon { font-size: 30px; margin-bottom: 14px; }
+    .opp-card h4 { font-size: 15px; font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+    .opp-card p { font-size: 13px; font-weight: 500; color: #5a6a80; line-height: 1.7; }
+    .opp-stat {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      border-radius: 14px;
+      padding: 28px 36px;
+      display: flex; align-items: center; justify-content: space-around; gap: 20px;
+    }
+    .opp-stat-item { text-align: center; }
+    .opp-stat-item strong { display: block; font-size: 36px; font-weight: 900; color: var(--beige); }
+    .opp-stat-item span { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ══════════════════════════════
+       SLIDE 3 – ABOUT SHILEN
+    ══════════════════════════════ */
+    #s3 {
+      background: linear-gradient(160deg, #0d2240 0%, var(--blue) 50%, #1a4a8a 100%);
+      position: relative; overflow: hidden;
+    }
+    #s3::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,237,217,0.06) 0%, transparent 70%);
+      top: -200px; right: -200px;
+    }
+    #s3 .section-header { padding-top: 50px; }
+    #s3 .sec-tag { color: var(--beige-deep); }
+    #s3 .section-header h2 { color: var(--white); }
+    #s3 .divider { background: var(--beige-deep); }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 0 60px 50px;
+      align-items: start;
+    }
+    .bio-left { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .bio-avatar {
+      width: 160px; height: 160px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--beige-deep), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px; position: relative;
+    }
+    .online-dot {
+      position: absolute; bottom: 8px; right: 8px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #4ade80; border: 3px solid var(--blue);
+    }
+    .bio-name { font-size: 18px; font-weight: 800; color: #fff; text-align: center; }
+    .bio-title { font-size: 11px; font-weight: 600; color: var(--beige-deep); letter-spacing: 1.5px; text-transform: uppercase; text-align: center; }
+    .bio-right { display: flex; flex-direction: column; gap: 16px; }
+    .bio-highlight {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 18px 22px;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px; font-weight: 500; line-height: 1.75;
+    }
+    .bio-highlight strong { color: var(--beige-deep); font-weight: 800; }
+    .pillars-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pillar-chip {
+      background: rgba(245,237,217,0.12);
+      border: 1px solid rgba(245,237,217,0.25);
+      color: var(--beige);
+      font-size: 11px; font-weight: 700;
+      padding: 8px 16px; border-radius: 20px;
+      letter-spacing: .5px;
+    }
+
+    /* ══════════════════════════════
+       SLIDE 4 – WHY PERSONAL BRANDING
+    ══════════════════════════════ */
+    #s4 { background: var(--beige); }
+    .pb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .pb-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(28,63,110,0.08);
+      transition: transform .2s;
+    }
+    .pb-card:hover { transform: translateY(-4px); }
+    .pb-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin: 0 auto 16px;
+    }
+    .pb-card h4 { font-size: 14px; font-weight: 800; color: var(--blue); margin-bottom: 10px; }
+    .pb-card p { font-size: 12px; font-weight: 500; color: #6a7a90; line-height: 1.7; }
+    .quote-box {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+      border-radius: 14px; padding: 28px 36px; margin-top: 20px;
+      position: relative;
+    }
+    .quote-box::before {
+      content: '"'; font-size: 80px; font-weight: 900; color: rgba(255,255,255,0.1);
+      position: absolute; top: -10px; left: 20px; line-height: 1;
+    }
+    .quote-box p { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.6; text-align: center; }
+    .quote-box cite { display: block; margin-top: 12px; font-size: 11px; font-weight: 600; color: var(--beige-deep); letter-spacing: 1.5px; text-transform: uppercase; text-align: center; font-style: normal; }
+
+    /* ══════════════════════════════
+       SLIDE 5 – STRATEGY
+    ══════════════════════════════ */
+    #s5 {
+      background: linear-gradient(160deg, #0d2240 0%, var(--blue) 100%);
+    }
+    #s5 .sec-tag { color: var(--beige-deep); }
+    #s5 .section-header h2 { color: var(--white); }
+    #s5 .divider { background: var(--beige-deep); }
+    .strategy-steps {
+      display: flex; flex-direction: column; gap: 16px;
+      padding: 0 60px 50px;
+    }
+    .step {
+      display: flex; gap: 20px; align-items: flex-start;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 22px 24px;
+    }
+    .step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--beige); color: var(--blue);
+      font-size: 16px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .step-content p { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); line-height: 1.65; }
+    .step-icon { font-size: 22px; margin-left: auto; flex-shrink: 0; }
+
+    /* ══════════════════════════════
+       SLIDE 6 – DELIVERABLES
+    ══════════════════════════════ */
+    #s6 { background: var(--beige); }
+    .del-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .del-block {
+      background: var(--white); border-radius: 14px; padding: 26px 24px;
+      box-shadow: 0 4px 20px rgba(28,63,110,0.08);
+    }
+    .del-block .del-head {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .del-icon-box {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .del-block h4 { font-size: 14px; font-weight: 800; color: var(--blue); }
+    .del-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .del-list li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; font-weight: 500; color: #5a6a80; line-height: 1.5;
+    }
+    .del-list li::before {
+      content: '✓'; color: var(--blue-mid); font-weight: 900; font-size: 13px; flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════
+       SLIDE 7 – PRICING
+    ══════════════════════════════ */
+    #s7 {
+      background: linear-gradient(160deg, #0b1e35 0%, var(--blue) 100%);
+    }
+    #s7 .sec-tag { color: var(--beige-deep); }
+    #s7 .section-header h2 { color: #fff; }
+    #s7 .divider { background: var(--beige-deep); }
+    .pricing-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 26px;
+      padding: 10px 60px 50px;
+    }
+    .price-card {
+      border-radius: 20px; padding: 36px 32px;
+      position: relative; overflow: hidden;
+    }
+    .price-card.starter {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .price-card.pro {
+      background: var(--beige);
+      border: none;
+    }
+    .price-card.pro::before {
+      content: 'MOST POPULAR';
+      position: absolute; top: 18px; right: -28px;
+      background: var(--blue-mid); color: #fff;
+      font-size: 9px; font-weight: 800; letter-spacing: 2px;
+      padding: 5px 40px; transform: rotate(45deg);
+    }
+    .plan-name {
+      font-size: 11px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .price-card.starter .plan-name { color: var(--beige-deep); }
+    .price-card.pro .plan-name { color: var(--blue-mid); }
+    .price-amount {
+      font-size: 54px; font-weight: 900; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-card.starter .price-amount { color: #fff; }
+    .price-card.pro .price-amount { color: var(--blue); }
+    .price-period {
+      font-size: 12px; font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .price-card.starter .price-period { color: rgba(255,255,255,0.5); }
+    .price-card.pro .price-period { color: #8a9ab5; }
+    .price-divider { height: 1px; margin-bottom: 24px; }
+    .price-card.starter .price-divider { background: rgba(255,255,255,0.12); }
+    .price-card.pro .price-divider { background: var(--beige-dark); }
+    .price-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+    .price-list li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 13px; font-weight: 600; line-height: 1.5;
+    }
+    .price-card.starter .price-list li { color: rgba(255,255,255,0.8); }
+    .price-card.pro .price-list li { color: var(--text-dark); }
+    .price-list li span.check { flex-shrink: 0; }
+    .price-card.starter .check { color: var(--beige-deep); }
+    .price-card.pro .check { color: var(--blue-mid); }
+    .buy-btn {
+      display: block; text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 800;
+      padding: 14px 24px; border-radius: 40px;
+      cursor: pointer; border: none; width: 100%;
+      letter-spacing: .5px;
+    }
+    .price-card.starter .buy-btn {
+      background: rgba(255,255,255,0.12);
+      color: #fff; border: 1px solid rgba(255,255,255,0.2);
+    }
+    .price-card.pro .buy-btn {
+      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+      color: #fff;
+    }
+
+    /* ══════════════════════════════
+       SLIDE 8 – RESULTS / ROI
+    ══════════════════════════════ */
+    #s8 { background: var(--beige); }
+    .roi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 22px;
+    }
+    .roi-card {
+      background: var(--white); border-radius: 14px; padding: 24px 18px; text-align: center;
+      box-shadow: 0 4px 20px rgba(28,63,110,0.08);
+    }
+    .roi-card .roi-icon { font-size: 28px; margin-bottom: 10px; }
+    .roi-card strong { display: block; font-size: 28px; font-weight: 900; color: var(--blue); margin-bottom: 4px; }
+    .roi-card span { font-size: 11px; font-weight: 600; color: #8a9ab5; letter-spacing: .5px; }
+    .timeline-bar {
+      background: var(--white); border-radius: 14px; padding: 26px 30px;
+      box-shadow: 0 4px 20px rgba(28,63,110,0.08);
+    }
+    .timeline-bar h4 { font-size: 13px; font-weight: 800; color: var(--blue); margin-bottom: 18px; letter-spacing: 1px; text-transform: uppercase; }
+    .tl-steps {
+      display: flex; gap: 0; position: relative;
+    }
+    .tl-step {
+      flex: 1; text-align: center; position: relative;
+    }
+    .tl-step::before {
+      content: ''; position: absolute;
+      top: 14px; left: 50%; width: 100%; height: 2px;
+      background: var(--beige-dark); z-index: 0;
+    }
+    .tl-step:last-child::before { display: none; }
+    .tl-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      margin: 0 auto 10px; position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; color: #fff;
+    }
+    .tl-step .tl-label { font-size: 11px; font-weight: 700; color: var(--blue); }
+    .tl-step .tl-desc { font-size: 10px; font-weight: 500; color: #8a9ab5; margin-top: 4px; line-height: 1.4; }
+
+    /* ══════════════════════════════
+       SLIDE 9 – WHY US
+    ══════════════════════════════ */
+    #s9 {
+      background: linear-gradient(160deg, #0d2240 0%, #1a3a6b 100%);
+    }
+    #s9 .sec-tag { color: var(--beige-deep); }
+    #s9 .section-header h2 { color: #fff; }
+    #s9 .divider { background: var(--beige-deep); }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+      padding: 0 60px 50px;
+    }
+    .why-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 22px 20px;
+    }
+    .why-emoji { font-size: 28px; flex-shrink: 0; }
+    .why-item h4 { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .why-item p { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+    /* ══════════════════════════════
+       SLIDE 10 – CTA
+    ══════════════════════════════ */
+    #s10 {
+      background: var(--beige);
+      min-height: 420px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 60px;
+      position: relative; overflow: hidden;
+    }
+    #s10::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231C3F6E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    #s10 .sec-tag { color: var(--blue-mid); margin-bottom: 14px; }
+    #s10 h2 { font-size: 40px; font-weight: 900; color: var(--blue); line-height: 1.2; margin-bottom: 16px; }
+    #s10 h2 em { font-style: normal; color: var(--blue-light); }
+    #s10 p { font-size: 15px; font-weight: 500; color: #5a6a80; line-height: 1.7; max-width: 520px; margin-bottom: 36px; }
+    .cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+      color: #fff; font-family: 'Montserrat', sans-serif;
+      font-size: 14px; font-weight: 800;
+      padding: 16px 36px; border-radius: 40px;
+      border: none; cursor: pointer; letter-spacing: .5px;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--blue); font-family: 'Montserrat', sans-serif;
+      font-size: 14px; font-weight: 700;
+      padding: 15px 36px; border-radius: 40px;
+      border: 2px solid var(--blue); cursor: pointer;
+    }
+    .contact-row {
+      display: flex; gap: 30px; margin-top: 36px; flex-wrap: wrap; justify-content: center;
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; color: #6a7a90;
+    }
+    .contact-item span { font-size: 18px; }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 700px) {
+      #s1 { grid-template-columns: 1fr; }
+      .s1-right { display: none; }
+      .s1-left h1 { font-size: 30px; }
+      .section-header { padding: 36px 30px 10px; }
+      .section-body { padding: 20px 30px 36px; }
+      .opp-grid, .pb-grid, .del-grid, .pricing-row, .why-grid, .roi-grid {
+        grid-template-columns: 1fr;
+      }
+      .pb-grid { grid-template-columns: 1fr 1fr; }
+      .bio-grid { grid-template-columns: 1fr; }
+      .strategy-steps { padding: 0 30px 36px; }
+      .why-grid { padding: 0 30px 36px; }
+      .pricing-row { padding: 10px 30px 36px; }
+      .roi-grid { grid-template-columns: 1fr 1fr; }
+      #s10 { padding: 40px 30px; }
+      #s10 h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nav">
+  <button onclick="goto('s1')" class="active">Cover</button>
+  <button onclick="goto('s2')">Opportunity</button>
+  <button onclick="goto('s3')">The Founder</button>
+  <button onclick="goto('s4')">Why Branding</button>
+  <button onclick="goto('s5')">Strategy</button>
+  <button onclick="goto('s6')">Deliverables</button>
+  <button onclick="goto('s7')">Pricing</button>
+  <button onclick="goto('s8')">Results</button>
+  <button onclick="goto('s9')">Why Us</button>
+  <button onclick="goto('s10')">Next Steps</button>
+</div>
+
+<!-- ══════════ SLIDE 1 ══════════ -->
+<div class="slide" id="s1">
+  <div class="s1-left">
+    <div class="badge">Marketing Proposal · 2026</div>
+    <h1>Build the Brand<br/>Behind <span>Feesback</span></h1>
+    <p class="sub">
+      A personal branding strategy crafted exclusively for<br/>
+      <strong style="color:#e8d9b8;">Shilen Arrow</strong> — Founder, Feesback
+    </p>
+    <div class="cta-pill">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+      Let's Build Your Legacy
+    </div>
+  </div>
+  <div class="s1-right">
+    <div class="founder-card">
+      <div class="avatar-ring">🏢</div>
+      <h3>Shilen Arrow</h3>
+      <p>Founder · Feesback</p>
+      <div class="stats-row">
+        <div class="stat-box">
+          <strong>10K+</strong>
+          <span>Agents</span>
+        </div>
+        <div class="stat-box">
+          <strong>#1</strong>
+          <span>Platform</span>
+        </div>
+        <div class="stat-box">
+          <strong>5⭐</strong>
+          <span>Rated</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-label">01 / 10</span>
+</div>
+
+<!-- ══════════ SLIDE 2 ══════════ -->
+<div class="slide" id="s2">
+  <div class="section-header">
+    <div class="sec-tag">The Opportunity</div>
+    <h2>Real Estate Is Built on <em>Trust.</em><br/>Trust Is Built on People.</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="section-body">
+    <div class="opp-grid">
+      <div class="opp-card">
+        <div class="icon">🏠</div>
+        <h4>Feesback's Unique Position</h4>
+        <p>Feesback connects homebuyers and sellers with the perfect real estate agent — but in a crowded market, the platform's success depends on the authority of its founder.</p>
+      </div>
+      <div class="opp-card">
+        <div class="icon">📱</div>
+        <h4>The Attention Economy</h4>
+        <p>95% of property searches start online. Buyers and agents now evaluate credibility through social presence before making any decision.</p>
+      </div>
+      <div class="opp-card">
+        <div class="icon">🤝</div>
+        <h4>Founder-Led Growth</h4>
+        <p>Platforms that humanise their brand through the founder's story see 3× higher user trust and 2× faster platform adoption.</p>
+      </div>
+      <div class="opp-card">
+        <div class="icon">🎯</div>
+        <h4>The Gap Right Now</h4>
+        <p>Shilen Arrow has an extraordinary story — but it's invisible online. We change that with a strategic, consistent personal brand.</p>
+      </div>
+      <div class="opp-stat">
+        <div class="opp-stat-item">
+          <strong>82%</strong>
+          <span>of consumers trust<br/>a founder's personal brand</span>
+        </div>
+        <div class="opp-stat-item">
+          <strong>3×</strong>
+          <span>more leads from<br/>thought-leadership content</span>
+        </div>
+        <div class="opp-stat-item">
+          <strong>$4.6T</strong>
+          <span>global real estate<br/>market opportunity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 3 ══════════ -->
+<div class="slide" id="s3">
+  <div class="section-header">
+    <div class="sec-tag">The Founder</div>
+    <h2 style="color:#fff;">Meet <em style="color:#D6C49A;">Shilen Arrow</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="bio-grid">
+    <div class="bio-left">
+      <div class="bio-avatar">
+        🚀
+        <div class="online-dot"></div>
+      </div>
+      <div class="bio-name">Shilen Arrow</div>
+      <div class="bio-title">Founder & CEO<br/>Feesback</div>
+    </div>
+    <div class="bio-right">
+      <div class="bio-highlight">
+        Shilen Arrow is the visionary behind <strong>Feesback</strong> — a platform disrupting how real estate agents and clients find each other. His mission: make agent matching transparent, fast, and fair.
+      </div>
+      <div class="bio-highlight">
+        With deep expertise in <strong>proptech, consumer trust, and marketplace dynamics</strong>, Shilen has built Feesback from the ground up. His personal story of challenging an opaque industry is the most powerful marketing asset Feesback has.
+      </div>
+      <div class="pillars-row">
+        <span class="pillar-chip">🏡 PropTech Leader</span>
+        <span class="pillar-chip">💡 Innovator</span>
+        <span class="pillar-chip">📣 Storyteller</span>
+        <span class="pillar-chip">🤝 Community Builder</span>
+        <span class="pillar-chip">📈 Growth Minded</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 4 ══════════ -->
+<div class="slide" id="s4">
+  <div class="section-header">
+    <div class="sec-tag">Why Personal Branding</div>
+    <h2>Your Face Is <em>Feesback's</em> Most<br/>Powerful Growth Engine</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="section-body">
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-icon">🌟</div>
+        <h4>Credibility & Authority</h4>
+        <p>Position Shilen as the #1 thought leader in agent-client matching — making Feesback the obvious choice.</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">📈</div>
+        <h4>Organic Platform Growth</h4>
+        <p>Every follower Shilen gains is a potential agent or buyer for Feesback. Audience = pipeline.</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">🎙️</div>
+        <h4>Media & PR Magnet</h4>
+        <p>A strong personal brand attracts podcasts, press features, and speaking invitations — free distribution.</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">💰</div>
+        <h4>Investor Confidence</h4>
+        <p>VCs and angels back founders — a compelling public identity directly improves fundraising outcomes.</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">🤝</div>
+        <h4>Strategic Partnerships</h4>
+        <p>Visible founders attract the right collaborators — agencies, portals, and industry associations reach out.</p>
+      </div>
+      <div class="pb-card">
+        <div class="pb-icon">🔒</div>
+        <h4>Moat Against Competition</h4>
+        <p>A personal brand is impossible to replicate. Once built, it becomes Feesback's durable competitive edge.</p>
+      </div>
+    </div>
+    <div class="quote-box">
+      <p>"People don't buy products. They buy people — and then the products follow."</p>
+      <cite>— Proven growth marketing principle</cite>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 5 ══════════ -->
+<div class="slide" id="s5">
+  <div class="section-header">
+    <div class="sec-tag">Our Strategy</div>
+    <h2 style="color:#fff;">A <em style="color:#D6C49A;">4-Phase</em> Roadmap to<br/>Dominate Your Niche</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="strategy-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h4>Brand Discovery & Positioning</h4>
+        <p>Deep-dive audit of Shilen's story, values, voice, and audience. Define a crystal-clear personal brand identity — unique, magnetic, and unmistakably his.</p>
+      </div>
+      <div class="step-icon">🔍</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h4>Profile Overhaul & Visual Identity</h4>
+        <p>LinkedIn, Instagram, and X profiles redesigned from scratch. Professional photography direction, headline optimisation, and bio copywriting to maximise first impressions.</p>
+      </div>
+      <div class="step-icon">✨</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h4>Content Strategy & Creation</h4>
+        <p>Monthly content calendar built around Shilen's narrative. Carousels, short-form video scripts, LinkedIn articles, and story content — all done-for-you.</p>
+      </div>
+      <div class="step-icon">📝</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h4>Authority Building & Amplification</h4>
+        <p>Outreach for podcasts, press features, industry panels. Community engagement strategy. Analytics review and monthly performance reporting.</p>
+      </div>
+      <div class="step-icon">📣</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 6 ══════════ -->
+<div class="slide" id="s6">
+  <div class="section-header">
+    <div class="sec-tag">Deliverables</div>
+    <h2>Everything Included in<br/>Your <em>Brand Package</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="section-body">
+    <div class="del-grid">
+      <div class="del-block">
+        <div class="del-head">
+          <div class="del-icon-box">📱</div>
+          <h4>Social Media Management</h4>
+        </div>
+        <ul class="del-list">
+          <li>LinkedIn profile full optimisation</li>
+          <li>Instagram bio + highlight covers</li>
+          <li>12–16 posts per month (all platforms)</li>
+          <li>Story content & engagement replies</li>
+          <li>Hashtag & SEO strategy built-in</li>
+        </ul>
+      </div>
+      <div class="del-block">
+        <div class="del-head">
+          <div class="del-icon-box">✍️</div>
+          <h4>Content Creation</h4>
+        </div>
+        <ul class="del-list">
+          <li>4 LinkedIn long-form posts per month</li>
+          <li>4 carousel graphics (branded)</li>
+          <li>2 short-form video scripts</li>
+          <li>1 thought-leadership article</li>
+          <li>Custom Canva templates (editable)</li>
+        </ul>
+      </div>
+      <div class="del-block">
+        <div class="del-head">
+          <div class="del-icon-box">🎨</div>
+          <h4>Brand Identity Kit</h4>
+        </div>
+        <ul class="del-list">
+          <li>Personal brand guideline document</li>
+          <li>Tone of voice & messaging framework</li>
+          <li>Bio versions (short, medium, long)</li>
+          <li>Branded cover photo + profile assets</li>
+          <li>Email signature design</li>
+        </ul>
+      </div>
+      <div class="del-block">
+        <div class="del-head">
+          <div class="del-icon-box">📊</div>
+          <h4>Strategy & Reporting</h4>
+        </div>
+        <ul class="del-list">
+          <li>Monthly content calendar</li>
+          <li>Competitor & audience analysis</li>
+          <li>Monthly analytics report</li>
+          <li>Podcast/media outreach (Pro plan)</li>
+          <li>Bi-weekly strategy calls</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 7 ══════════ -->
+<div class="slide" id="s7">
+  <div class="section-header">
+    <div class="sec-tag">Investment</div>
+    <h2 style="color:#fff;">Choose Your <em style="color:#D6C49A;">Growth Plan</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="pricing-row">
+
+    <!-- STARTER -->
+    <div class="price-card starter">
+      <div class="plan-name">Starter Plan</div>
+      <div class="price-amount">$1,200</div>
+      <div class="price-period">per month</div>
+      <div class="price-divider"></div>
+      <ul class="price-list">
+        <li><span class="check">✦</span> Full LinkedIn optimisation</li>
+        <li><span class="check">✦</span> 12 posts / month (LinkedIn + IG)</li>
+        <li><span class="check">✦</span> 4 branded carousel graphics</li>
+        <li><span class="check">✦</span> Personal brand identity kit</li>
+        <li><span class="check">✦</span> Monthly analytics report</li>
+        <li><span class="check">✦</span> 1 strategy call / month</li>
+        <li><span class="check">✦</span> 2 short-form video scripts</li>
+      </ul>
+      <button class="buy-btn">Get Started →</button>
+    </div>
+
+    <!-- PRO -->
+    <div class="price-card pro">
+      <div class="plan-name">Pro Plan</div>
+      <div class="price-amount">$1,500</div>
+      <div class="price-period">per month</div>
+      <div class="price-divider"></div>
+      <ul class="price-list">
+        <li><span class="check">✦</span> Everything in Starter, plus:</li>
+        <li><span class="check">✦</span> 16 posts / month (all platforms)</li>
+        <li><span class="check">✦</span> 1 thought-leadership article</li>
+        <li><span class="check">✦</span> Podcast & media outreach</li>
+        <li><span class="check">✦</span> Bi-weekly strategy calls</li>
+        <li><span class="check">✦</span> Story content + engagement mgmt</li>
+        <li><span class="check">✦</span> Priority support (48hr response)</li>
+      </ul>
+      <button class="buy-btn">Get the Pro Plan →</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 8 ══════════ -->
+<div class="slide" id="s8">
+  <div class="section-header">
+    <div class="sec-tag">Expected Results</div>
+    <h2>What You Can Expect in<br/><em>90 Days</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="section-body">
+    <div class="roi-grid">
+      <div class="roi-card">
+        <div class="roi-icon">👥</div>
+        <strong>+2,500</strong>
+        <span>New Followers<br/>Across Platforms</span>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">👁️</div>
+        <strong>50K+</strong>
+        <span>Monthly Content<br/>Impressions</span>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">📥</div>
+        <strong>3×</strong>
+        <span>Inbound Leads<br/>Increase</span>
+      </div>
+      <div class="roi-card">
+        <div class="roi-icon">🎙️</div>
+        <strong>2–4</strong>
+        <span>Podcast / Media<br/>Features</span>
+      </div>
+    </div>
+    <div class="timeline-bar">
+      <h4>90-Day Growth Timeline</h4>
+      <div class="tl-steps">
+        <div class="tl-step">
+          <div class="tl-dot">1</div>
+          <div class="tl-label">Week 1–2</div>
+          <div class="tl-desc">Brand audit &amp; identity build</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">2</div>
+          <div class="tl-label">Week 3–4</div>
+          <div class="tl-desc">Profile overhaul &amp; first content</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">3</div>
+          <div class="tl-label">Month 2</div>
+          <div class="tl-desc">Content rhythm + audience growth</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-dot">4</div>
+          <div class="tl-label">Month 3</div>
+          <div class="tl-desc">Media outreach + measurable ROI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 9 ══════════ -->
+<div class="slide" id="s9">
+  <div class="section-header">
+    <div class="sec-tag">Why Work With Us</div>
+    <h2 style="color:#fff;">We Don't Just <em style="color:#D6C49A;">Post Content.</em><br/>We Build Legacies.</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-emoji">🏆</div>
+      <div>
+        <h4>PropTech Niche Expertise</h4>
+        <p>We understand real estate, proptech, and marketplace dynamics — your content will speak the language your audience trusts.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-emoji">🎯</div>
+      <div>
+        <h4>Strategy-First, Always</h4>
+        <p>No random posts. Every piece of content is mapped to Feesback's growth goals and Shilen's brand storyline.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-emoji">⚡</div>
+      <div>
+        <h4>Done-For-You Execution</h4>
+        <p>Shilen focuses on building Feesback. We handle every word, every graphic, every upload — completely hands-off for you.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-emoji">📊</div>
+      <div>
+        <h4>Data-Driven Decisions</h4>
+        <p>Monthly reports with clear metrics — followers, impressions, engagement, and inbound leads so you always see the ROI.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 10 ══════════ -->
+<div class="slide" id="s10">
+  <div class="sec-tag">Next Steps</div>
+  <h2>Ready to Make Shilen Arrow<br/>the <em>Face of PropTech?</em></h2>
+  <p>
+    Feesback has a remarkable story — and the world deserves to hear it. Let's build a personal brand that drives platform growth, investor confidence, and industry authority.
+  </p>
+  <div class="cta-buttons">
+    <button class="btn-primary">Book a Strategy Call →</button>
+    <button class="btn-secondary">View Portfolio</button>
+  </div>
+  <div class="contact-row">
+    <div class="contact-item">
+      <span>📧</span> hello@youragency.com
+    </div>
+    <div class="contact-item">
+      <span>📱</span> +1 (000) 000-0000
+    </div>
+    <div class="contact-item">
+      <span>🌐</span> www.youragency.com
+    </div>
+  </div>
+</div>
+
+<script>
+  function goto(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('#nav button').forEach((b, i) => {
+      b.classList.toggle('active', b.getAttribute('onclick').includes(id));
+    });
+  }
+
+  // Highlight active nav on scroll
+  const slides = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10'];
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        document.querySelectorAll('#nav button').forEach(b => {
+          b.classList.toggle('active', b.getAttribute('onclick').includes(id));
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  slides.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+</script>
+</body>
+</html>

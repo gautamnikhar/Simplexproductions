@@ -1,0 +1,52 @@
+div{
+    background-color: #F6F1F1;
+}
+body{
+text-align: center;
+margin: 0;
+font-family: 'Montserrat', sans-serif;
+}
+h1{
+    font-family: 'MuseoModerno', cursive;
+}  
+.namepara{
+    font-family: 'MuseoModerno', cursive;
+}
+.top-container{
+    padding-top: 100px;
+    background-color: #F6F1F1;
+    padding-bottom: 100px;
+
+}
+.hell{
+    padding-top: 80px;
+}
+
+/* p{
+ Display tag properties block element doesn't allow anything to sit next to it but inline element does and none just hide the element
+    display: inline;
+    display: inline-block;
+    display: block;
+    display: none;
+} */
+.bottom-cloud{
+    height: 200px;
+    width: 220px;
+    position: absolute;
+    left: 400px;
+    bottom: 400px;
+
+}
+.top-cloud{
+    height: 200px;
+    width: 220px;
+    position: absolute;
+    right: 300px;
+    top: 50px;
+
+}
+.mountain{
+    margin-top: 15%;
+    height: 30%;
+    width: 40%;
+}
